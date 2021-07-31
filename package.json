@@ -1,0 +1,23 @@
+{
+  "name": "profile-generator",
+  "version": "1.0.0",
+  "description": "This is a Node.js command-line application that takes in information about employees on a software engineering team, then generates an HTML webpage that displays summaries for each person.",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Maalie04/Profile-Generator.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Maalie04/Profile-Generator/issues"
+  },
+  "homepage": "https://github.com/Maalie04/Profile-Generator#readme"
+}
