@@ -20,36 +20,41 @@ THEN I am prompted to enter the intern’s name, ID, email, and school, and I am
 WHEN I decide to finish building my team
 THEN I exit the application, and the HTML is generated */
 
+// prompt questions using inquirer for manager input
 const promptUser = () => {
     return inquirer.prompt([
         {
             type: "input",
-            name: "managers",
+            name: "manager",
             message: "What is the managers name?"
         },
         {
             type: "input",
             name: "managerID",
-            message: "enter your manager id"
+            message: "Enter your manager id"
         },
         {
             type: "input",
-            name: "enter managers email",
-            message: "Table of contents?"
+            name: "managersEmail",
+            message: "Enter your email?"
         },
         {
             type: "input",
             name: "officeNum",
-            message: "enter managers office number"
-        },
-        {
-            type: "list",
-            name: "teamMember",
-            message: "add team member",
-            choices: ["engineer", "intern"]
+            message: "Enter office number"
         },
 ])
-
+.then(data => {
+    let manger = new Manager(data.manager, data.managerID, data.managerEmail, data.officeNum);
+    teamMember.push(manager);
+    // additional team member
+    if(data.teamMember === intern){
+        addIntern();
+    } 
+    else if(data.teamMember === engineer){
+        addEngineer();
+    }
+})
 };
 
 const init = () => {
@@ -69,28 +74,26 @@ const addEngineer = () => {
         {
             type: "input",
             name: "engineerID",
-            message: "enter your engineer id"
+            message: "enter your id"
         },
         {
             type: "input",
             name: "engineersEmail",
-            message: "enter engineers email?"
+            message: "enter email?"
         },
         {
             type: "input",
             name: "github",
-            message: "enter engineers github"
-        },
-        {
-            type: "list",
-            name: "teamMember",
-            message: "add team member",
-            choices: ["engineer", "intern"],
+            message: "enter github"
         },
 ])
 .then(data => {
     let engineer = new Engineer(data.engineer, data.engineerID, data.engineersEmail, data.github);
     teamMember.push(engineer);
+    // additional team member
+    if(data.teamMember === intern){
+        addIntern();
+    }
 })
 
 };
@@ -121,14 +124,30 @@ const addIntern = () => {
             type: "list",
             name: "teamMember",
             message: "add team member",
-            choices: ["intern", "intern"],
+            choices: ["engineer", "intern", "exit"],
         },
 ])
 .then(data => {
-    let engineer = new Engineer(data.engineer, data.engineerID, data.engineersEmail, data.github);
-    teamMember.push(engineer);
+    let intern = new Intern(data.engineer, data.engineerID, data.engineersEmail, data.github);
+    teamMember.push(intern);
+    // additional team member
+    if(data.teamMember === engineer){
+        addEngineer();
+    }
 })
 
 };
+
+const addMember = () => {
+    1
+}
+const init = () => {
+    promptUser()
+        .then((data) =>
+            fs.writeFile('teamProfile.HTML', renderOutPut(data), (err) =>
+                err ? console.error(err) : console.log('HTML Team Profile was successfully created!!')));
+};
+
+
 
 init();
