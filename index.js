@@ -2,10 +2,11 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
 //import manager,engineer, and intern classes
-const manager = require('Manager');
-const engineer = require('Engineer');
-const intern = require('Intern');
+const Manager = require('./lib/Manager');
+const Engineer = require('./lib/Engineer');
+const Intern = require('./lib/Intern');
 const renderOutPut = require('./dist/renderOutput');
+const Employee = require('./lib/Employee');
 let teamMember = [];
 
 
@@ -26,17 +27,17 @@ const promptUser = () => {
         {
             type: "input",
             name: "manager",
-            message: "What is the managers name?"
+            message: "Enter Manager name?"
         },
         {
             type: "input",
             name: "managerID",
-            message: "Enter your manager id"
+            message: "Enter Manager id"
         },
         {
             type: "input",
             name: "managersEmail",
-            message: "Enter your email?"
+            message: "Enter Manager email?"
         },
         {
             type: "input",
@@ -45,23 +46,17 @@ const promptUser = () => {
         },
 ])
 .then(data => {
-    let manger = new Manager(data.manager, data.managerID, data.managerEmail, data.officeNum);
-    teamMember.push(manager);
+    let employee = new Employee(data.manager, data.managerID, data.managerEmail, data.officeNum);
+    teamMember.push(employee);
     // additional team member
-    if(data.teamMember === intern){
-        addIntern();
-    } 
-    else if(data.teamMember === engineer){
-        addEngineer();
-    }
+    // if(data.teamMember === intern){
+    //     addIntern();
+    // } 
+    // else if(data.teamMember === engineer){
+    //     addEngineer();
+    // } 
+   addMember();
 })
-};
-
-const init = () => {
-    promptUser()
-        .then((data) =>
-            fs.writeFile('teamProfile.HTML', renderOutPut(data), (err) =>
-                err ? console.error(err) : console.log('HTML Team Profile was successfully created!!')));
 };
 
 const addEngineer = () => {
@@ -69,31 +64,29 @@ const addEngineer = () => {
         {
             type: "input",
             name: "engineer",
-            message: "What is the engineers name?"
+            message: "Enter Engineer name?"
         },
         {
             type: "input",
             name: "engineerID",
-            message: "enter your id"
+            message: "Enter Engineer id"
         },
         {
             type: "input",
             name: "engineersEmail",
-            message: "enter email?"
+            message: "Enter Engineer email?"
         },
         {
             type: "input",
             name: "github",
-            message: "enter github"
+            message: "Enter Engineer github"
         },
 ])
 .then(data => {
     let engineer = new Engineer(data.engineer, data.engineerID, data.engineersEmail, data.github);
     teamMember.push(engineer);
     // additional team member
-    if(data.teamMember === intern){
-        addIntern();
-    }
+    addMember();
 })
 
 };
@@ -103,44 +96,64 @@ const addIntern = () => {
         {
             type: "input",
             name: "intern",
-            message: "What is the interns name?"
+            message: "Enter Interns name?"
         },
         {
             type: "input",
             name: "internID",
-            message: "enter your intern id"
+            message: "Enter Intern id"
         },
         {
             type: "input",
             name: "internsEmail",
-            message: "enter interns email"
+            message: "Enter Interns email"
         },
         {
             type: "input",
-            name: "github",
-            message: "enter interns school"
-        },
-        {
-            type: "list",
-            name: "teamMember",
-            message: "add team member",
-            choices: ["engineer", "intern", "exit"],
+            name:  "school",
+            message: "Enter Interns school"
         },
 ])
 .then(data => {
     let intern = new Intern(data.engineer, data.engineerID, data.engineersEmail, data.github);
     teamMember.push(intern);
     // additional team member
-    if(data.teamMember === engineer){
-        addEngineer();
-    }
+    addMember();
+    
 })
 
 };
 
 const addMember = () => {
-    1
-}
+inquirer.prompt([
+    {
+        type: "list",
+        name: "addMember",
+        message: "Do you want to add another member?",
+        choices:["Intern", "Engineer", "Exit"]
+    },
+])
+.then(data => {
+   console.log(data.Intern)
+//     if(this.choices === data.Intern){
+//    addIntern();
+//     } 
+//     else if(this.choices === data.Engineer){
+//          addEngineer();
+//     }
+    
+//     else if(this.choices === data.Exit){
+//      console.log("finished");
+//     }
+//     else{
+//         addMember();
+//     }
+})
+
+
+};
+
+
 const init = () => {
     promptUser()
         .then((data) =>
