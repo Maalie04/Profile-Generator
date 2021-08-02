@@ -6,7 +6,7 @@ const path = require('path');
 const Manager = require('./lib/Manager');
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
-// const renderOutPut = require('./dist/renderOutput');
+const renderOutPut = require('./dist/renderOutput');
 const Employee = require('./lib/Employee');
 let teamMember = [];
 
@@ -43,7 +43,7 @@ const managerQ = [
             type: "input",
             name: "officeNum",
             message: "Enter office number"
-        }
+        },
     ]
 
     const internQ = [
@@ -66,17 +66,8 @@ const managerQ = [
             type: "input",
             name: "school",
             message: "Enter school"
-        }
+        },
     ]
-    
-        // .then(data => {
-        //     let manager = new Manager(data.manager, data.managerID, data.managerEmail, data.officeNum);
-        //     teamMember.push(manager);
-        //     console.log(teamMember);
-        //     // addMember();
-        // })
-        // .catch((err) => console.error('Promise rejected:', err));
-
 
 const engineerQ = 
 [
@@ -121,9 +112,7 @@ const addMember = () => {
             }
             else {
              buildFile();
-          
             }
-
         }).catch((err) => console.error('Promise rejected:', err));
 
 };
@@ -155,23 +144,67 @@ const addIntern = () => {
     });
 }   
 
-const renderOutPut = (array) => {
+// const renderOutPut = (array) => {
 
-    return `<!DOCTYPE html>
-    <html lang="en">
+//     return `<!DOCTYPE html>
+//     <html lang="en">
     
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="./template.css">
-        <title>Profile Generator</title>
-    </head>
-<body> 
-
-</body> 
-`
-}
+//     <head>
+//         <meta charset="UTF-8">
+//         <meta http-equiv="X-UA-Compatible" content="IE=edge">
+//         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+//         <link rel="stylesheet" href="./template.css">
+//         <title>Profile Generator</title>
+//     </head>
+    
+//     <body>
+//         <div class="navbar">
+//             <h2 class="navbarTitle">My Team</h2>
+//         </div>
+//         <div class="card">
+//             <div class="teamCard">
+//                 <div class="cardTitle">
+//                     <h3>Title - Role</h3>
+//                 </div>
+//                 <div class="cardBody">
+//                     <ul>
+//                         <li>Name: </li>
+//                         <li>ID: </li>
+//                         <li>Email: </li>
+//                     </ul>
+//                 </div>
+    
+//                 <div class="teamCard">
+//                     <div class="cardTitle">
+//                         <h3>Title - Role</h3>
+//                     </div>
+//                     <div class="cardBody">
+//                         <ul>
+//                             <li>Name: </li>
+//                             <li>ID: </li>
+//                             <li>Email: </li>
+//                         </ul>
+//                     </div>
+//                     <div class="teamCard">
+//                         <div class="cardTitle">
+//                             <h3>Title - Role</h3>
+//                         </div>
+//                         <div class="cardBody">
+//                             <ul>
+//                                 <li>Name: </li>
+//                                 <li>ID: </li>
+//                                 <li>Email: </li>
+//                             </ul>
+//                         </div>
+//                     </div>
+//                 </div>
+//             </div>
+//         </div>
+//     </body>
+    
+//     </html>
+// `
+// }
 const buildFile = () => {
     
     fs.writeFile(path.join(__dirname, "TeamProfile.html"), renderOutPut(teamMember), (err) =>

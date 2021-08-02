@@ -1,6 +1,5 @@
-const renderOutPut = () => {
-return
-`<!DOCTYPE html>
+const renderOutPut = (array) => {
+return`<!DOCTYPE html>
 <html lang="en">
 
 <head>
