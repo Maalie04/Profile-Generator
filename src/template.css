@@ -1,0 +1,35 @@
+
+.navbar{
+    height: 60px;
+    text-align: center;
+    align-items: center;
+    background-color: blue;
+    color: white;
+    padding-bottom: 60px;
+    padding-top: 5px;
+    font-size: 30px;
+}
+
+.body{
+    font-family: 'Courier New', Courier, monospace;
+    height: 100%;
+    margin: 0%;
+    
+}
+
+.card{
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+}
+
+.teamCard{
+    width: 150px;
+    height: 110px;
+    background-color: grey;
+    box-shadow: 18px 18px 18px blue;
+    border-radius: 8px;
+}
+.cardbody{
+
+}

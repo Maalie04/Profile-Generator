@@ -48,13 +48,7 @@ const promptUser = () => {
         .then(data => {
             let employee = new Employee(data.manager, data.managerID, data.managerEmail, data.officeNum);
             teamMember.push(employee);
-            // additional team member
-            // if(data.teamMember === intern){
-            //     addIntern();
-            // } 
-            // else if(data.teamMember === engineer){
-            //     addEngineer();
-            // } 
+           
             addMember();
         })
         .catch((err) => console.error('Promise rejected:', err));
@@ -87,9 +81,8 @@ const addEngineer = () => {
         .then(data => {
             let engineer = new Engineer(data.engineer, data.engineerID, data.engineersEmail, data.github);
             teamMember.push(engineer);
-
-
         })
+        .catch((err) => console.error('Promise rejected:', err));
 
 };
 
@@ -119,13 +112,10 @@ const addMember = () => {
 
 };
 
-const renderOutPut = () => {
-    
-}
 const init = () => {
     promptUser()
         .then((data) =>
-            fs.writeFile('teamProfile.HTML', renderOutPut("hello"), (err) =>
+            fs.writeFile('teamProfile.HTML', renderOutPut(data), (err) =>
                 err ? console.error(err) : console.log('HTML Team Profile was successfully created!!')));
 };
 
