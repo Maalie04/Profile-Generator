@@ -44,23 +44,25 @@ const promptUser = () => {
             name: "officeNum",
             message: "Enter office number"
         },
-])
-.then(data => {
-    let employee = new Employee(data.manager, data.managerID, data.managerEmail, data.officeNum);
-    teamMember.push(employee);
-    // additional team member
-    // if(data.teamMember === intern){
-    //     addIntern();
-    // } 
-    // else if(data.teamMember === engineer){
-    //     addEngineer();
-    // } 
-   addMember();
-})
+    ])
+        .then(data => {
+            let employee = new Employee(data.manager, data.managerID, data.managerEmail, data.officeNum);
+            teamMember.push(employee);
+            // additional team member
+            // if(data.teamMember === intern){
+            //     addIntern();
+            // } 
+            // else if(data.teamMember === engineer){
+            //     addEngineer();
+            // } 
+            addMember();
+        })
+        .catch((err) => console.error('Promise rejected:', err));
+
 };
 
 const addEngineer = () => {
-    inquirer.prompt([
+    return inquirer.prompt([
         {
             type: "input",
             name: "engineer",
@@ -81,83 +83,49 @@ const addEngineer = () => {
             name: "github",
             message: "Enter Engineer github"
         },
-])
-.then(data => {
-    let engineer = new Engineer(data.engineer, data.engineerID, data.engineersEmail, data.github);
-    teamMember.push(engineer);
-    // additional team member
-    addMember();
-})
+    ])
+        .then(data => {
+            let engineer = new Engineer(data.engineer, data.engineerID, data.engineersEmail, data.github);
+            teamMember.push(engineer);
 
-};
 
-const addIntern = () => {
-    inquirer.prompt([
-        {
-            type: "input",
-            name: "intern",
-            message: "Enter Interns name?"
-        },
-        {
-            type: "input",
-            name: "internID",
-            message: "Enter Intern id"
-        },
-        {
-            type: "input",
-            name: "internsEmail",
-            message: "Enter Interns email"
-        },
-        {
-            type: "input",
-            name:  "school",
-            message: "Enter Interns school"
-        },
-])
-.then(data => {
-    let intern = new Intern(data.engineer, data.engineerID, data.engineersEmail, data.github);
-    teamMember.push(intern);
-    // additional team member
-    addMember();
-    
-})
+        })
 
 };
 
 const addMember = () => {
-inquirer.prompt([
-    {
-        type: "list",
-        name: "addMember",
-        message: "Do you want to add another member?",
-        choices:["Intern", "Engineer", "Exit"]
-    },
-])
-.then(data => {
-   console.log(data.Intern)
-//     if(this.choices === data.Intern){
-//    addIntern();
-//     } 
-//     else if(this.choices === data.Engineer){
-//          addEngineer();
-//     }
-    
-//     else if(this.choices === data.Exit){
-//      console.log("finished");
-//     }
-//     else{
-//         addMember();
-//     }
-})
+    return inquirer.prompt([
+        {
+            type: "list",
+            name: "addMember",
+            message: "Do you want to add another member?",
+            choices: ["Intern", "Engineer", "Exit"]
+        },
+    ])
+        .then(data => {
+            // additional team member
+            console.log(teamMember);
+            if (data === "Intern") {
+                addIntern();
+            }
+            else if (data === "Engineer") {
+                addEngineer();
+            }
+            else {
+                renderOutPut();
+            }
 
+        }).catch((err) => console.error('Promise rejected:', err));
 
 };
 
-
+const renderOutPut = () => {
+    
+}
 const init = () => {
     promptUser()
         .then((data) =>
-            fs.writeFile('teamProfile.HTML', renderOutPut(data), (err) =>
+            fs.writeFile('teamProfile.HTML', renderOutPut("hello"), (err) =>
                 err ? console.error(err) : console.log('HTML Team Profile was successfully created!!')));
 };
 
