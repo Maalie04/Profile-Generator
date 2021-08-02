@@ -1,11 +1,12 @@
 //import inquirer package
 const inquirer = require('inquirer');
 const fs = require('fs');
+const path = require('path');
 //import manager,engineer, and intern classes
 const Manager = require('./lib/Manager');
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
-const renderOutPut = require('./dist/renderOutput');
+// const renderOutPut = require('./dist/renderOutput');
 const Employee = require('./lib/Employee');
 let teamMember = [];
 
@@ -22,8 +23,7 @@ WHEN I decide to finish building my team
 THEN I exit the application, and the HTML is generated */
 
 // prompt questions using inquirer for manager input
-const promptUser = () => {
-    return inquirer.prompt([
+const managerQ = [
         {
             type: "input",
             name: "manager",
@@ -36,27 +36,50 @@ const promptUser = () => {
         },
         {
             type: "input",
-            name: "managersEmail",
+            name: "managerEmail",
             message: "Enter Manager email?"
         },
         {
             type: "input",
             name: "officeNum",
             message: "Enter office number"
+        }
+    ]
+
+    const internQ = [
+        {
+            type: "input",
+            name: "intern",
+            message: "Enter Interns name?"
         },
-    ])
-        .then(data => {
-            let employee = new Employee(data.manager, data.managerID, data.managerEmail, data.officeNum);
-            teamMember.push(employee);
-           
-            addMember();
-        })
-        .catch((err) => console.error('Promise rejected:', err));
+        {
+            type: "input",
+            name: "internID",
+            message: "Enter intern id"
+        },
+        {
+            type: "input",
+            name: "internEmail",
+            message: "Enter intern email?"
+        },
+        {
+            type: "input",
+            name: "school",
+            message: "Enter school"
+        }
+    ]
+    
+        // .then(data => {
+        //     let manager = new Manager(data.manager, data.managerID, data.managerEmail, data.officeNum);
+        //     teamMember.push(manager);
+        //     console.log(teamMember);
+        //     // addMember();
+        // })
+        // .catch((err) => console.error('Promise rejected:', err));
 
-};
 
-const addEngineer = () => {
-    return inquirer.prompt([
+const engineerQ = 
+[
         {
             type: "input",
             name: "engineer",
@@ -69,7 +92,7 @@ const addEngineer = () => {
         },
         {
             type: "input",
-            name: "engineersEmail",
+            name: "engineerEmail",
             message: "Enter Engineer email?"
         },
         {
@@ -77,17 +100,9 @@ const addEngineer = () => {
             name: "github",
             message: "Enter Engineer github"
         },
-    ])
-        .then(data => {
-            let engineer = new Engineer(data.engineer, data.engineerID, data.engineersEmail, data.github);
-            teamMember.push(engineer);
-        })
-        .catch((err) => console.error('Promise rejected:', err));
-
-};
-
+]
 const addMember = () => {
-    return inquirer.prompt([
+    inquirer.prompt([
         {
             type: "list",
             name: "addMember",
@@ -98,14 +113,15 @@ const addMember = () => {
         .then(data => {
             // additional team member
             console.log(teamMember);
-            if (data === "Intern") {
+            if (data.addMember === "Intern") {
                 addIntern();
             }
-            else if (data === "Engineer") {
+            else if (data.addMember === "Engineer") {
                 addEngineer();
             }
             else {
-                renderOutPut();
+             buildFile();
+          
             }
 
         }).catch((err) => console.error('Promise rejected:', err));
@@ -113,11 +129,54 @@ const addMember = () => {
 };
 
 const init = () => {
-    promptUser()
-        .then((data) =>
-            fs.writeFile('teamProfile.HTML', renderOutPut(data), (err) =>
-                err ? console.error(err) : console.log('HTML Team Profile was successfully created!!')));
+  inquirer.prompt(managerQ)
+  .then(data => {
+      const manager = new Manager(data.manager,data.managerID,data.managerEmail,data.officeNum);
+      teamMember.push(manager);
+      addMember();
+  })
+
+  
 };
+const addEngineer = () => {
+    inquirer.prompt(engineerQ)
+    .then(data => {
+        const engineer = new Engineer(data.engineer,data.engineerID,data.engineerEmail,data.github);
+        teamMember.push(engineer);
+        addMember();
+    });
+}
+const addIntern = () => {
+    inquirer.prompt(internQ)
+    .then(data => {
+        const intern = new Intern(data.intern,data.internID,data.internEmail,data.school);
+        teamMember.push(intern);
+        addMember();
+    });
+}   
+
+const renderOutPut = (array) => {
+
+    return `<!DOCTYPE html>
+    <html lang="en">
+    
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="./template.css">
+        <title>Profile Generator</title>
+    </head>
+<body> 
+
+</body> 
+`
+}
+const buildFile = () => {
+    
+    fs.writeFile(path.join(__dirname, "TeamProfile.html"), renderOutPut(teamMember), (err) =>
+        err ? console.error(err) : console.log('HTML Team Profile was successfully created!!'));
+}
 
 
 
