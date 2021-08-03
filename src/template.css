@@ -21,15 +21,25 @@
     /* display: flex;
     justify-content: center;
     align-items: center; */
+    display: flex;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding: 5px;
 }
 
 .teamCard{
-    width: 150px;
-    height: 110px;
+    display: flex;
+    align-content: space-between;
+    width: 170px;
+    height: 170px;
     background-color: grey;
     box-shadow: 18px 18px 18px blue;
     border-radius: 8px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding: 5px;
 }
 .cardbody{
-
+width: fit-content;
+height: fit-content;
 }

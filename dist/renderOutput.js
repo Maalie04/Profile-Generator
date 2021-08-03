@@ -22,8 +22,9 @@ return`<!DOCTYPE html>
             <div class="cardBody">
                 <ul>
                     <li>Name: ${teamMember[0].name}</li>
-                    <li>ID: </li>
-                    <li>Email: </li>
+                    <li>ID: ${teamMember[0].id}</li>
+                    <li>Email: ${teamMember[0].email}</li>
+                    <li>OfficeNumber: ${teamMember[0].officeNumber}</li>
                 </ul>
             </div>
 
@@ -33,9 +34,10 @@ return`<!DOCTYPE html>
                 </div>
                 <div class="cardBody">
                     <ul>
-                        <li>Name: </li>
-                        <li>ID: </li>
-                        <li>Email: </li>
+                        <li>Name: ${teamMember[1].name}</li>
+                        <li>ID: ${teamMember[1].id}</li>
+                        <li>Email: ${teamMember[1].email}</li>
+                        <li>Github: ${teamMember[1].github}</li>
                     </ul>
                 </div>
                 <div class="teamCard">
@@ -44,9 +46,10 @@ return`<!DOCTYPE html>
                     </div>
                     <div class="cardBody">
                         <ul>
-                            <li>Name: </li>
-                            <li>ID: </li>
-                            <li>Email: </li>
+                            <li>Name: ${teamMember[2].name}</li>
+                            <li>ID: ${teamMember[2].id}</li>
+                            <li>Email: ${teamMember[2].email}</li>
+                            <li>School: ${teamMember[2].school}</li>
                         </ul>
                     </div>
                 </div>
