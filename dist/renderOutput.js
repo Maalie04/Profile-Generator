@@ -1,4 +1,4 @@
-const renderOutPut = (array) => {
+const renderOutPut = (teamMember) => {
 return`<!DOCTYPE html>
 <html lang="en">
 
@@ -21,7 +21,7 @@ return`<!DOCTYPE html>
             </div>
             <div class="cardBody">
                 <ul>
-                    <li>Name: ${array.manager}</li>
+                    <li>Name: ${teamMember[0].name}</li>
                     <li>ID: </li>
                     <li>Email: </li>
                 </ul>
