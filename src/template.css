@@ -18,17 +18,22 @@
 }
 
 .card{
-    /* display: flex;
-    justify-content: center;
-    align-items: center; */
+    
+    justify-content: space-around;
+    align-items: center; 
     display: flex;
-    margin-top: 5px;
-    margin-bottom: 5px;
+    align-content: space-between;
     padding: 5px;
+    margin-top: 10%;
 }
 
+.cardTitle{
+    text-align: center;
+    text-decoration: underline;
+}
+    
 .teamCard{
-    width: 170px;
+    width: 200px;
     height: 170px;
     background-color: grey;
     box-shadow: 18px 18px 18px blue;
@@ -37,7 +42,7 @@
     margin-bottom: 5px;
     padding: 5px;
 }
-.cardbody{
-width: fit-content;
-height: fit-content;
+li{
+list-style: none;
+margin-bottom: 5px;
 }

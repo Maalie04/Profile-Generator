@@ -1,4 +1,5 @@
-const renderOutPut = (teamMember) => {
+
+const renderOutPut = (teamMember) => { 
 return`<!DOCTYPE html>
 <html lang="en">
 
@@ -21,42 +22,47 @@ return`<!DOCTYPE html>
             </div>
             <div class="cardBody">
                 <ul>
-                    <li>Name: ${teamMember[0].name}</li>
-                    <li>ID: ${teamMember[0].id}</li>
-                    <li>Email: ${teamMember[0].email}</li>
-                    <li>OfficeNumber: ${teamMember[0].officeNumber}</li>
+                <li>Name: ${teamMember[0].name}</li>
+                <li>ID: ${teamMember[0].id}</li>
+                <li>Email: ${teamMember[0].email}</li>
+                <li>OfficeNumber: ${teamMember[0].officeNumber}</li>                
                 </ul>
             </div>
+        </div>
 
-            <div class="teamCard">
-                <div class="cardTitle">
-                    <h3>Title - Role</h3>
-                </div>
-                <div class="cardBody">
-                    <ul>
-                        <li>Name: ${teamMember[1].name}</li>
-                        <li>ID: ${teamMember[1].id}</li>
-                        <li>Email: ${teamMember[1].email}</li>
-                        <li>Github: ${teamMember[1].github}</li>
-                    </ul>
-                </div>
-                <div class="teamCard">
-                    <div class="cardTitle">
-                        <h3>Title - Role</h3>
-                    </div>
-                    <div class="cardBody">
-                        <ul>
-                            <li>Name: ${teamMember[2].name}</li>
-                            <li>ID: ${teamMember[2].id}</li>
-                            <li>Email: ${teamMember[2].email}</li>
-                            <li>School: ${teamMember[2].school}</li>
-                        </ul>
-                    </div>
-                </div>
+        <div class="teamCard">
+            <div class="cardTitle">
+                <h3>Title - Role</h3>
+            </div>
+            <div class="cardBody">
+                <ul>
+                <li>Name: ${teamMember[1].name}</li>
+                <li>ID: ${teamMember[1].id}</li>
+                <li>Email: ${teamMember[1].email}</li>
+                <li>Github: ${teamMember[1].school}</li>                
+                </ul>
+            </div>
+        </div>
+        <div class="teamCard">
+            <div class="cardTitle">
+                <h3>Title - Role</h3>
+            </div>
+            <div class="cardBody">
+                <ul>
+                <li>Name: ${teamMember[2].name}</li>
+                <li>ID: ${teamMember[2].id}</li>
+                <li>Email: ${teamMember[2].email}</li>
+                <li>School: ${teamMember[2].github}</li>
+                </ul>
             </div>
         </div>
     </div>
 </body>
+
+</html>
 `}
 
 module.exports = renderOutPut;
+
+
+
