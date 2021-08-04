@@ -7,11 +7,13 @@
 ## Table of Contents
 
 *[Profile-Generator](#Profile-Generator)
+
 *[Description](#Description)
+
 *[Installation](#Installation)
-*[Badges](#Badges)
+
 *[Test](#Test)
-*[Walk-Through](#Walk-Through)
+
 
 ## Description
 
