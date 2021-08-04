@@ -22,7 +22,7 @@
 
 >Info will ask for quick access to their emails and GitHub profiles.
 
-![alt image](./output/2021-08-03(8).png)
+![alt image](./output/2021-08-04.png)
 ![alt image](./output/2021-08-03(9).png)
 ![alt image](./output/2021-08-03(10).png)
 ## Installation
