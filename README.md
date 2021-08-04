@@ -1,8 +1,8 @@
 # Profile-Generator
 
-![alt image](../output/2021-08-03(8).png)
-![alt image](../output/2021-08-03(9).png)
-![alt image](../output/2021-08-03(10).png)
+![alt image](./output/2021-08-03(8).png)
+![alt image](./output/2021-08-03(9).png)
+![alt image](./output/2021-08-03(10).png)
 
 ## Table of Contents
 
@@ -34,8 +34,8 @@
 
 ## Test
 
-![alt image](../output/2021-08-03.png)
-![alt image](../output/2021-08-03(5).png)
-![alt image](../output/2021-08-03(6).png)
-![alt image](../output/2021-08-03(7).png)
+![alt image](./output/2021-08-03.png)
+![alt image](./output/2021-08-03(5).png)
+![alt image](./output/2021-08-03(6).png)
+![alt image](./output/2021-08-03(7).png)
 
