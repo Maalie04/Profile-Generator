@@ -1,8 +1,8 @@
 # Profile-Generator
 
-![alt image](../output/2021-08-03(8).png)
-![alt image](../output/2021-08-03(9).png)
-![alt image](../output/2021-08-03(10).png)
+![alt image](./output/2021-08-03(8).png)
+![alt image](./output/2021-08-03(9).png)
+![alt image](./output/2021-08-03(10).png)
 
 ## Table of Contents
 
@@ -33,11 +33,11 @@
 
 ## Test
 
-![alt image](../output/2021-08-03.png)
-![alt image](../output/2021-08-03(5).png)
-![alt image](../output/2021-08-03(6).png)
-![alt image](../output/2021-08-03(7).png)
+![alt image](./output/2021-08-03.png)
+![alt image](./output/2021-08-03(5).png)
+![alt image](./output/2021-08-03(6).png)
+![alt image](./output/2021-08-03(7).png)
 
 ## Walk-Through
-![alt video](https://drive.google.com/file/d/1V0s5I5h5VqeskOqkS_4WUl9QRVxq0zU3/view)
-![alt video](https://drive.google.com/file/d/1s6JD2u9qWCrUG1Gv_U4rU59lx-Z_tyoj/view)
+![alt video](https://drive.google.com/file/d/1V0s5I5h5VqeskOqkS_4WUl9QRVxq0zU3/view?usp=sharing)
+![alt video](https://drive.google.com/file/d/1s6JD2u9qWCrUG1Gv_U4rU59lx-Z_tyoj/view?usp=sharing)
