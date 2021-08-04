@@ -33,9 +33,8 @@
 
 ## Badges
 
-* ![github](https://github.com/Maalie04/Profile-Generator)
-
-
+![github](https://github.com/Maalie04/Profile-Generator)
+*
 ## Test
 
 ![alt image](../output/2021-08-03.png)
