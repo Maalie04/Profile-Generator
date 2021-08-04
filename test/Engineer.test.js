@@ -14,6 +14,7 @@ expect(engineer.name).toEqual("Ted");
 expect(engineer.id).toEqual("123");
 expect(engineer.email).toEqual("jlawson@gmail.com");
 expect(engineer.github).toEqual("github/Maalie04.com")
+expect(engineer.getRole()).toEqual("Engineer");
     })
 })
 

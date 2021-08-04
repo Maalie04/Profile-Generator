@@ -11,6 +11,7 @@ const employee = new Employee(name,id,email);
 expect(employee.name).toEqual("Ted");
 expect(employee.id).toEqual("123");
 expect(employee.email).toEqual("jlawson@gmail.com");
+expect(employee.getRole()).toEqual("Employee");
         })
     })
 })

@@ -14,6 +14,7 @@ expect(manager.name).toEqual("Ted");
 expect(manager.id).toEqual("123");
 expect(manager.email).toEqual("jlawson@gmail.com");
 expect(manager.officeNumber).toEqual("BL35");
+expect(manager.getRole()).toEqual("Manager");
     })
 })
 

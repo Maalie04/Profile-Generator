@@ -14,6 +14,7 @@ expect(intern.name).toEqual("Ted");
 expect(intern.id).toEqual("123");
 expect(intern.email).toEqual("jlawson@gmail.com");
 expect(intern.school).toEqual("Frostburg State University");
+expect(intern.getRole()).toEqual("Intern");
     })
 })
 
