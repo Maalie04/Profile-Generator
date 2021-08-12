@@ -32,7 +32,7 @@ return`<!DOCTYPE html>
 
         <div class="teamCard">
             <div class="cardTitle">
-                <h3>Title - Engineer</h3>
+                <h3>Title - </h3>
             </div>
             <div class="cardBody">
                 <ul>
@@ -45,7 +45,7 @@ return`<!DOCTYPE html>
         </div>
         <div class="teamCard">
             <div class="cardTitle">
-                <h3>Title -Intern</h3>
+                <h3>Title - </h3>
             </div>
             <div class="cardBody">
                 <ul>
