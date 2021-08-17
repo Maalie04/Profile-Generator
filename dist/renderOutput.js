@@ -75,6 +75,10 @@ return `
     </div> `;
 }
 
+const profileData = [];
+    profileData.push(results.filter(employee.getRole() === "Manager").map(data => renderMan(data)).join(""));
+    profileData.push(results.filter(employee.getRole() === "Engineer").map(data => renderMan(data)).join(""));
+    profileData.push(results.filter(employee.getRole() === "Intern").map(data => renderMan(data)).join(""));
 }
 
 module.exports = renderOutPut;
