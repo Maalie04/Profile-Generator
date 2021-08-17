@@ -161,6 +161,11 @@ return `
  `   });
 }
 
+generateHtmlcard() 
+    
+
+
+
 const buildFile = () => {
     
     fs.writeFile(path.join(__dirname, "TeamProfile.html"), renderOutPut(teamMember), (err) =>

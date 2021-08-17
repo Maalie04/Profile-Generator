@@ -1,5 +1,5 @@
 
-const renderOutPut = (teamMember) => { 
+const renderOutPut = (results) => { 
 return`<!DOCTYPE html>
 <html lang="en">
 
@@ -12,6 +12,14 @@ return`<!DOCTYPE html>
 </head>
 
 <body>
+
+</body>
+
+</html>
+
+`
+const renderMan = (manager) => {
+    return `
     <div class="navbar">
         <h2 class="navbarTitle">My Team</h2>
     </div>
@@ -28,9 +36,11 @@ return`<!DOCTYPE html>
                 <li>OfficeNumber: ${teamMember[0].officeNumber}</li>                
                 </ul>
             </div>
-        </div>
-
-        <div class="teamCard">
+        </div>`;
+}
+ const renderEng = (engineer) => {
+return `
+    <div class="teamCard">
             <div class="cardTitle">
                 <h3>Title - </h3>
             </div>
@@ -42,7 +52,13 @@ return`<!DOCTYPE html>
                 <li>Github: ${teamMember[1].github}</li>                
                 </ul>
             </div>
-        </div>
+        </div> `;
+ }
+
+
+const renderInt = (intern) => {
+return `
+
         <div class="teamCard">
             <div class="cardTitle">
                 <h3>Title - </h3>
@@ -56,11 +72,10 @@ return`<!DOCTYPE html>
                 </ul>
             </div>
         </div>
-    </div>
-</body>
+    </div> `;
+}
 
-</html>
-`}
+}
 
 module.exports = renderOutPut;
 
