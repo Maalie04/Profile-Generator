@@ -159,10 +159,7 @@ return `
         </div>
     </div>
  `   });
-}
-
-generateHtmlcard() 
-    
+} 
 
 
 

@@ -1,87 +1,100 @@
 
-const renderOutPut = (results) => { 
-return`<!DOCTYPE html>
-<html lang="en">
+const renderOutPut = (results) => {
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./src/template.css">
-    <title>Profile Generator</title>
-</head>
-
-<body>
-
-</body>
-
-</html>
-
-`
-const renderMan = (manager) => {
-    return `
+    const renderMan = (manager) => {
+        return `
     <div class="navbar">
         <h2 class="navbarTitle">My Team</h2>
     </div>
     <div class="card">
         <div class="teamCard">
             <div class="cardTitle">
-                <h3>Title - Manager</h3>
+                <h3>Team - Manager</h3>
             </div>
             <div class="cardBody">
                 <ul>
-                <li>Name: ${teamMember[0].name}</li>
-                <li>ID: ${teamMember[0].id}</li>
-                <li>Email: ${teamMember[0].email}</li>
-                <li>OfficeNumber: ${teamMember[0].officeNumber}</li>                
+                <li>Name: ${manager.getName()}</li>
+                <li>ID: ${manager.getId()}</li>
+                <li>Email: ${manager.getEmail()}</li>
+                <li>OfficeNumber: ${manager.getOfficeNumber()}</li>                
                 </ul>
             </div>
         </div>`;
-}
- const renderEng = (engineer) => {
-return `
+    }
+    const renderEng = (engineer) => {
+        return `
     <div class="teamCard">
             <div class="cardTitle">
-                <h3>Title - </h3>
+                <h3>Team - Engineer</h3>
             </div>
             <div class="cardBody">
                 <ul>
-                <li>Name: ${teamMember[1].name}</li>
-                <li>ID: ${teamMember[1].id}</li>
-                <li>Email: ${teamMember[1].email}</li>
-                <li>Github: ${teamMember[1].github}</li>                
+                <li>Name: ${engineer.getName()}</li>
+                <li>ID: ${engineer.getId()}</li>
+                <li>Email: ${engineer.getEmail()}</li>
+                <li>Github: ${engineer.getGithub()}</li>                
                 </ul>
-            </div>
+     </div>
         </div> `;
- }
+    }
 
 
-const renderInt = (intern) => {
-return `
+    const renderInt = (intern) => {
+        return `
 
         <div class="teamCard">
             <div class="cardTitle">
-                <h3>Title - </h3>
+                <h3>Team - Intern</h3>
             </div>
             <div class="cardBody">
                 <ul>
-                <li>Name: ${teamMember[2].name}</li>
-                <li>ID: ${teamMember[2].id}</li>
-                <li>Email: ${teamMember[2].email}</li>
-                <li>School: ${teamMember[2].school}</li>
+                <li>Name: ${intern.getName()}</li>
+                <li>ID: ${intern.getId()}/li>
+                <li>Email: ${intern.getEmail()}</li>
+                <li>School: ${intern.getSchool()}</li>
                 </ul>
             </div>
         </div>
     </div> `;
+    }
+
+    const profileData = [];
+    profileData.push(results.filter(employee => employee.getRole() === "Manager").map(data => renderMan(data)).join(""));
+    profileData.push(results.filter(employee => employee.getRole() === "Engineer").map(data => renderEng(data)).join(""));
+    profileData.push(results.filter(employee => employee.getRole() === "Intern").map(data => renderInt(data)).join(""));
+
+    return profileData
 }
 
-const profileData = [];
-    profileData.push(results.filter(employee.getRole() === "Manager").map(data => renderMan(data)).join(""));
-    profileData.push(results.filter(employee.getRole() === "Engineer").map(data => renderMan(data)).join(""));
-    profileData.push(results.filter(employee.getRole() === "Intern").map(data => renderMan(data)).join(""));
-}
+module.exports = profileData => {
+    return `<!DOCTYPE html>
+    <html lang="en">
+    
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="./src/template.css">
+        <title>Profile Generator</title>
+    </head>
 
-module.exports = renderOutPut;
+    </body>
+        <header>
+
+            <div class= "container">
+                 <div class= "row">
+
+                 </div>
+                    <div class= "cardRow">
+                    ${renderOutPut(profileData)}
+                   </div>
+            </div>
+       </header>     
+    <body>
+    </html>
+    
+    `
+};
 
 
 
