@@ -49,7 +49,7 @@ const renderOutPut = (results) => {
             <div class="cardBody">
                 <ul>
                 <li>Name: ${intern.getName()}</li>
-                <li>ID: ${intern.getId()}/li>
+                <li>ID: ${intern.getId()}</li>
                 <li>Email: ${intern.getEmail()}</li>
                 <li>School: ${intern.getSchool()}</li>
                 </ul>
@@ -63,7 +63,7 @@ const renderOutPut = (results) => {
     profileData.push(results.filter(employee => employee.getRole() === "Engineer").map(data => renderEng(data)).join(""));
     profileData.push(results.filter(employee => employee.getRole() === "Intern").map(data => renderInt(data)).join(""));
 
-    return profileData
+    return profileData.join("");
 }
 
 module.exports = profileData => {
