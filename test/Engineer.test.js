@@ -10,11 +10,11 @@ describe("Engineer", () => {
             const github = "github/Maalie04.com";
 
 const engineer = new Engineer(name,id,email,github);
-expect(engineer.name).toEqual("Ted");
-expect(engineer.id).toEqual("123");
-expect(engineer.email).toEqual("jlawson@gmail.com");
-expect(engineer.github).toEqual("github/Maalie04.com")
-expect(engineer.getRole()).toEqual("Engineer");
+expect(engineer.name).toBe("Ted");
+expect(engineer.id).toBe("123");
+expect(engineer.email).toBe("jlawson@gmail.com");
+expect(engineer.github).toBe("github/Maalie04.com")
+expect(engineer.getRole()).toBe("Engineer");
     })
 })
 

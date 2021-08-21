@@ -10,11 +10,11 @@ describe("Manager", () => {
             const officeNumber = "BL35";
 
 const manager = new Manager(name,id,email,officeNumber);
-expect(manager.name).toEqual("Ted");
-expect(manager.id).toEqual("123");
-expect(manager.email).toEqual("jlawson@gmail.com");
-expect(manager.officeNumber).toEqual("BL35");
-expect(manager.getRole()).toEqual("Manager");
+expect(manager.name).toBe("Ted");
+expect(manager.id).toBe("123");
+expect(manager.email).toBe("jlawson@gmail.com");
+expect(manager.officeNumber).toBe("BL35");
+expect(manager.getRole()).toBe("Manager");
     })
 })
 

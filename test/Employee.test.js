@@ -8,10 +8,10 @@ describe("Employee", () => {
             const email = "jlawson@gmail.com";
 
 const employee = new Employee(name,id,email);
-expect(employee.name).toEqual("Ted");
-expect(employee.id).toEqual("123");
-expect(employee.email).toEqual("jlawson@gmail.com");
-expect(employee.getRole()).toEqual("Employee");
+expect(employee.name).toBe("Ted");
+expect(employee.id).toBe("123");
+expect(employee.email).toBe("jlawson@gmail.com");
+expect(employee.getRole()).toBe("Employee");
         })
     })
 })
