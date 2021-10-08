@@ -33,14 +33,18 @@
 }
     
 .teamCard{
-    width: 200px;
-    height: 170px;
+    width: 250px;
+    height: 200px;
     background-color: grey;
     box-shadow: 18px 18px 18px blue;
     border-radius: 8px;
     margin-top: 5px;
     margin-bottom: 5px;
     padding: 5px;
+}
+
+.cardBody{
+    text-align: start;
 }
 li{
 list-style: none;
